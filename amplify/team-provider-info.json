@@ -1,0 +1,26 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-cozimo-dev-193744-authRole",
+      "UnauthRoleArn": "arn:aws:iam::885950866392:role/amplify-cozimo-dev-193744-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::885950866392:role/amplify-cozimo-dev-193744-authRole",
+      "Region": "eu-central-1",
+      "DeploymentBucketName": "amplify-cozimo-dev-193744-deployment",
+      "UnauthRoleName": "amplify-cozimo-dev-193744-unauthRole",
+      "StackName": "amplify-cozimo-dev-193744",
+      "StackId": "arn:aws:cloudformation:eu-central-1:885950866392:stack/amplify-cozimo-dev-193744/d5dd0a60-e00a-11eb-bc65-06b3fb26c106",
+      "AmplifyAppId": "d8knsmtm2icg0"
+    },
+    "categories": {
+      "auth": {
+        "cozimo65013c7b": {}
+      },
+      "function": {
+        "CreatePayment": {
+          "deploymentBucketName": "amplify-cozimo-dev-193744-deployment",
+          "s3Key": "amplify-builds/CreatePayment-65664476535034373155-build.zip"
+        }
+      }
+    }
+  }
+}

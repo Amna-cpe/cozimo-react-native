@@ -1,0 +1,69 @@
+type Mutation {
+  createPayment(amount: Int!): PaymentIntent! @function(name:"CreatePayment-${env}")
+}
+
+type PaymentIntent {
+  clientSecret: String!
+}
+
+
+type User @model @auth(rules: [{allow: public}]) {
+  name: String!
+  email: String!
+  defaultAddress: String
+  userSub: String!
+  phoneNum: String!
+}
+
+type Product @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  title: String!
+  description: String!
+  image: String!
+  avgRating: Float
+  ratings: Int
+  price: Float!
+  oldPrice: Float
+  language: String
+  numPages: Int
+  author: String
+}
+
+type ProductCart @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  userSub: String!
+  quantity: Int!
+  productId: ID!
+  product: Product @connection(fields: ["productId"])
+}
+
+type Order @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  userSub: String!
+  Country: String!
+  fullName: String!
+  phoneNum: String!
+  StreetAdd: String!
+  BuildAdd: String!
+  City: String!
+  ZipCode: String!
+  State: String!
+  createdAt: AWSDateTime
+  status: String
+  SubTotal: Float!
+  shippingFees: Float
+  GrandTotal: Float
+  shippingMethod: String
+  PaymentMethod: String
+}
+
+# since the cartproduct will delete cannot have a connection to it
+type OrderProduct @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  userSub: String!
+  quantity: Int!
+  productId: ID!
+  product: Product @connection(fields: ["productId"])
+  orderId: ID!
+  order: Order @connection(fields: ["orderId"])
+}
